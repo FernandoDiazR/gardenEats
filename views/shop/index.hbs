@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}{{#if user}}, {{user.username}}{{/if}}</p>
+
+
+<a href="/user/signup" class="btn btn-primary">Let's start!</a>
+<a href="/user/signin" class="btn btn-default">Login!</a>
+{{#if login}}
+<a href="/user/logout" class="btn btn-default">Log out...</a>
+{{/if}}

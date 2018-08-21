@@ -1,0 +1,48 @@
+<header class="my-header">
+        <a href="#" class="my-logo">
+        <span><b>Garden</b>Eats</span>
+        </a>
+        <nav class="container navbar navbar-static-top">
+            <div class="navbar-header">
+              <a class="navbar-toggle collapsed dr" data-toggle="collapse" data-target="#my-menu" >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="glyphicon glyphicon-th"></span>
+              </a>                                        
+              <div class="my-navbar-left ">
+                  <div class="collapse navbar-collapse " id="my-menu">
+                    <ul class="nav navbar-nav  ">
+                      <li><a hrexf="#">Inicio</a></li>
+                      <li class=" dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle= "dropdown" > Servicios <span class=" caret"> </span></a>         	
+                      <ul class=" dropdown-menu user-menu">        
+                      <li class=" dropdown-toggle" data-toggle="dropdown"><a href="#" >Sucursales</a></li>
+                      <li><a href="#" >Restaurantes</a></li>
+                       <li><a href="#" >Productos</a></li>
+                        <li><a href="#" >Pedidos</a></li>
+                         <li><a href="#" >Calificación</a></li>
+                    <!--  <li><a class="divider" ></a></li>
+                       <li><a href="#" >Item #3</a></li> -->
+
+                          </ul>
+                      <li><a href="#">Contactos</a></li>
+                      {{#if login}}
+                        <li><a href="/logout">Salir</a></li>
+                      {{/if}}
+                    </ul>
+                    </li> 
+                    <ul class="dropdown-menu nav  navbar-nav" role = "my-menu" aria-labelledby="dropdownMenu">
+                    	<li><a href="#" tabindex="-1">Sucursal</a></li>
+                    </ul>
+                  </div>
+              </div>
+
+            </div>
+            {{#if login}}
+              <div class="my-div-right">
+              <ul class="nav navbar-nav my-right-ul">
+					    <li><a href="#"> {{user.username}} </a></li>
+              </ul>
+            </div>
+            {{/if}}
+        </nav>
+</header>
