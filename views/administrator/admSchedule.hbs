@@ -1,0 +1,25 @@
+<div class="my-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 myform-cont">
+                <div class="myform-top">
+                    <div class="myform-top-left">
+                        <h3><strong>Registrar los horarios</strong></h3>
+                        <p>Horarios de {{branch.nameBranch}}</p>			
+                    </div>
+                </div>
+                <div class="myform-bottom"> 
+                    <form role="form" action="/{{rest._id}}/edit/branches/{{branch._id}}/sch" method="post">
+                        <div class="form-group">
+                            <input type="text" name="DiasLab" placeholder="Dias Laborados" class="form-control" id="DiasLab">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="hora" placeholder="Digite el horario..." class="form-control" id="hora">
+                        </div>
+                        <button type="submit" class="mybtn">Ingresar</button>	
+                    </form>
+                </div>
+			</div>					
+		</div>
+	</div>
+</div>

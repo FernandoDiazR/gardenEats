@@ -2,23 +2,36 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1> <strong>Sucursales</strong></h1>
+                <h1><strong> {{r.restName}} - Sucursales</strong></h1>
             </div>
         </div>
+        <div class="row">
+                <div class="col-md-4 col-md-offset-6">
+                    <a href="/{{r._id}}/edit/branches/add" class="btn btn-primary">Agregar sucursal</a>
+                </div>
+            </div>
         <br>
+        {{#if noBranches}}
+            <h2>No hay sucursales agregadas actualmente.</h2>
+        {{else}}
         <div class="row">
             <div class="col-md-10">			
                 <ul class="list-group">
                     <li class="list-group-item clearfix">
-                        <div class="col-md-6">
-                            Dolor
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" class="col-md-4">Editar</a> <a class="col-md-4" href="#">Editar Horarios</a> <a class="col-md-4" href="#" > Eliminar</a>
-                        </div>
+                        {{#each branches}}
+                            <div class="col-md-6">
+                            {{ this.nameBranch }}
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#" class="col-md-4">Editar</a>
+                                <a class="col-md-4" href="/{{r._id}}/edit/branches/{{this._id}}/sch">Editar Horarios</a>
+                                <a class="col-md-4" href="#">Eliminar</a>
+                            </div>
+                        {{/each}}
                     </li>
                 </ul>									
             </div>		
-        </div>				 								
+        </div>
+        {{/if}}				 								
     </div>
 </div>

@@ -25,7 +25,8 @@ var BranchSchema = new Schema({
     telephone: { type: String },
     schedule:[scheduleSchema],
     products: [productsSchema]
-})
+});
+
 var RestaurantSchema = new Schema({
     restName: { type: String, required: true },
     restDescription: { type: String },

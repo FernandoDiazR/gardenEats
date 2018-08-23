@@ -1,0 +1,28 @@
+<div class="my-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col.sm-offset-3 myform-cont">
+                <div class="myform-top">	
+                    <div class="myform-top-left">
+                        <h3><strong>Agregando sucursal - {{rest.restName}} </strong></h3>
+                        <p>Datos de la Sucursal</p>
+                    </div>
+                </div>
+            </div>				
+        </div>
+        <div class="myform-bottom">
+            <form role="form" action="/{{rest._id}}/edit/branches/add" method="post">
+                <div class="form-group">
+                    <input type="text" name="NomSucursal" placeholder="Nombre de la Sucursal" class="form-control" id="NomSucursal">				
+                </div>
+                <div class="form-group">	
+                    <input type="text" name="Direccion" placeholder="Direccion..." class="form-control" id="Direccion">
+                </div>
+                <div class="form-group">	
+                    <input type="text" name="Telefono" placeholder="Telefono..." class="form-control" id="Telefono">
+                </div>
+                <button class="btn btn-success"type="submit" class="mybtn">Aceptar</button>
+            </form>
+		</div>
+	</div>
+</div>

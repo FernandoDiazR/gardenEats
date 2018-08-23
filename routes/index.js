@@ -47,5 +47,61 @@ router.post('/addRestaurant', function(req, res, next){
     }
   });
 });
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+router.get('/:idRest/edit', function(req, res, next){
+  Restaurant.findById(req.params.idRest, function(err, rest){
+    if(err){
+      throw err;
+    }
+    res.render('shop/showRestaurant', {r: rest});
+  });
+});
+
+router.get('/:idRest/edit/branches', function(req, res, next){
+  Restaurant.findById(req.params.idRest, function(err, rest){
+    if(err){
+      throw err;
+    } else{
+      var branches = rest.branches;
+      res.render('administrator/admBranches', {r: rest, branches: branches, noBranches: branches.length == 0});
+    }
+  });
+});
+
+router.get('/:idRest/edit/branches/add', function(req, res, next){
+  var idr = req.params.idRest;
+  Restaurant.findById(idr, function(err, rest){
+    if(err){
+      throw err;
+    }
+    res.render('administrator/addBranch', {rest: rest});
+  });
+});
+
+router.post('/:idRest/edit/branches/add', function(req, res, next){
+  var idr = req.params.idRest;
+  var branch = {
+    nameBranch: req.body.NomSucursal,
+    address: req.body.Direccion,
+    telephone: req.body.Telefono
+  }
+  Restaurant.findByIdAndUpdate(idr, {$push:{branches: branch}}, function(err, done){
+    if(err){
+      throw err;
+    } else{
+      res.redirect('/'+idr+'/edit/branches');
+    }
+  });
+});
+
+router.get('/:idRest/edit/branches/:idBranch/sch', function(req, res, next){
+  var idr = req.params.idRest;
+  var idb = req.params.idBranch;
+  Restaurant.findById(idr, function(err, rest){
+    var branch = rest.branches.id(idb);
+    res.render('administrator/admSchedule', {rest: rest, branch: branch})
+  });
+});
 
 module.exports = router;
