@@ -8,7 +8,7 @@ body{
     background-color: #222733;
 }
 .my-header .my-logo {
-    webkit-transition: width 0.9s cubic-bezier(0.81, -0.05, 0.24, 1.31);
+    -webkit-transition: width 0.9s cubic-bezier(0.81, -0.05, 0.24, 1.31);
     -o-transition: width 0.9s ease-in-out;
     transition: width 0.9s cubic-bezier(0.81, -0.05, 0.24, 1.31);
     display: block;
@@ -27,15 +27,10 @@ body{
 .my-navbar-left{
     float: left;
 }
-/*---------------*/
 
-/*DIv de la zona de menu derecha*/
- .my-div-right{
-    float: right;
-    }
 /*---------------*/
 /*---ALERTA ICONO DE NOTIFICACION--------*/
-    .my-header .navbar .nav > li > a > .label {
+.my-header .navbar .nav > li > a > .label {
     position: absolute;
     top: 9px;
     right: 7px;
@@ -43,11 +38,11 @@ body{
     font-size: 9px;
     padding: 2px 3px;
     line-height: .9;
-    }
+}
 
-    .label-default {
+.label-default {
     background-color: #f13720;
-    }
+}
 /*-----------------------------*/
 /*SECCION DEL USUARIO*/
 .navbar-nav .user-menu .user-image {
@@ -88,8 +83,7 @@ body{
 /*-----------------------------*/
 
 /*Efectos sobre botones*/
-a:focus, a:hover{
-    
+.cusNav a:focus, .cusNav a:hover{
     text-decoration: none;
     background-color: rgba(8, 8, 8, 0.54);
     color: #1AAE88;
@@ -97,15 +91,15 @@ a:focus, a:hover{
     border-left: 1px groove #1AAE88;    
     border-right: 1px groove #1AAE88;
 }
-a, .my-logo{
+.cusNav a, .cusNav.my-logo{
     color: #fff;
     text-decoration: none;
 }
-a:hover:focus, .my-logo{
+.cusNav a:hover:focus, .cusNav.my-logo{
     color: #fff;
     text-decoration: none;
 }
-.nav>li>a:focus, .nav>li>a:hover{
+.cusNav.nav>li>a:focus, .nav>li>a:hover{
     text-decoration: none;
     background-color: rgba(8, 8, 8, 0.54);
     color: #1AAE88;
@@ -120,10 +114,10 @@ a:hover:focus, .my-logo{
 /*Media Query*/
 @media (max-width: 767px){
 
-    .my-header .my-logo {
+    .cusNav.my-header .my-logo {
     width: 100%;
     }
-    .navbar-toggle{
+    .cusNav .navbar-toggle{
     float: left;
     font-size: large;
     top: -3px;
@@ -151,7 +145,7 @@ a:hover:focus, .my-logo{
     position: absolute;
     top: 42px;
     }
-    .nav>li>a:focus, .nav>li>a:hover {
+    .cusNav.nav>li>a:focus, .cusNav.nav>li>a:hover {
     text-decoration: none;
     height: 40px;
     }

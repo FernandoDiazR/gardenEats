@@ -1,22 +1,23 @@
-<header class="my-header">
-        <a href="#" class="my-logo">
+<link rel="stylesheet" href="../css/NavbarStyle.css">
+<header class="cusNav my-header">
+        <a href="/" class="cusNav my-logo">
         <span><b>Garden</b>Eats</span>
         </a>
         <nav class="container navbar navbar-static-top">
             <div class="navbar-header">
-              <a class="navbar-toggle collapsed dr" data-toggle="collapse" data-target="#my-menu" >
+              <a class="cusNav navbar-toggle collapsed dr" data-toggle="collapse" data-target="#my-menu" >
                 <span class="sr-only">Toggle navigation</span>
                 <span class="glyphicon glyphicon-th"></span>
               </a>                                        
-              <div class="my-navbar-left ">
+              <div class="cusNav my-navbar-left ">
                   <div class="collapse navbar-collapse " id="my-menu">
-                    <ul class="nav navbar-nav  ">
-                      <li><a hrexf="#">Inicio</a></li>
-                      <li class=" dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle= "dropdown" > Servicios <span class=" caret"> </span></a>         	
-                      <ul class=" dropdown-menu user-menu">        
-                      <li class=" dropdown-toggle" data-toggle="dropdown"><a href="#" >Sucursales</a></li>
-                      <li><a href="#" >Restaurantes</a></li>
+                    <ul class="cusNav nav navbar-nav">
+                      <li><a href="/">Inicio</a></li>
+                      <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" > Servicios <span class="caret"> </span></a>         	
+                      <ul class="cusNav dropdown-menu user-menu">        
+                      <li class="dropdown-toggle" data-toggle="dropdown"><a href="#" >Sucursales</a></li>
+                      <li><a href="/restaurants" >Restaurantes</a></li>
                        <li><a href="#" >Productos</a></li>
                         <li><a href="#" >Pedidos</a></li>
                          <li><a href="#" >Calificación</a></li>
@@ -30,17 +31,16 @@
                       {{/if}}
                     </ul>
                     </li> 
-                    <ul class="dropdown-menu nav  navbar-nav" role = "my-menu" aria-labelledby="dropdownMenu">
+                    <ul class="cusNav dropdown-menu nav  navbar-nav" role = "my-menu" aria-labelledby="dropdownMenu">
                     	<li><a href="#" tabindex="-1">Sucursal</a></li>
                     </ul>
                   </div>
               </div>
-
             </div>
             {{#if login}}
-              <div class="my-div-right">
-              <ul class="nav navbar-nav my-right-ul">
-					    <li><a href="#"> {{user.username}} </a></li>
+            <div class="">
+              <ul class="cusNav nav navbar-nav pull-right">
+					      <li><a href="#"> {{loggedUser.username}} </a></li>
               </ul>
             </div>
             {{/if}}

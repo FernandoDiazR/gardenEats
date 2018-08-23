@@ -21,8 +21,7 @@ router.post('/signup', passport.authenticate('local.signup', {
   failureRedirect: '/user/signup',
   failureFlash: true
 }), function(req, res, next){
-  var username = req.body.username;
-  res.redirect('/'+username);
+  res.redirect('/');
 });
 
 
@@ -39,8 +38,7 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureRedirect: '/user/signin',
   failureFlash: true
 }), function(req, res, next){
-  var username = req.body.username;
-  res.redirect('/'+username);
+  res.redirect('/');
 });
 
 router.get('/logout', function(req, res, next){
