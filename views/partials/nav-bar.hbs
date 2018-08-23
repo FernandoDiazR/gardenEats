@@ -15,18 +15,16 @@
                       <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" > Servicios <span class="caret"> </span></a>         	
                       <ul class="cusNav dropdown-menu user-menu">
-                      <li><a href="/restaurants" >Restaurantes</a></li>
-                       <li><a href="#" >Productos</a></li>
+                        {{#if isAdm}}
+                        <li><a href="/restaurants" >Restaurantes</a></li>
+                        {{/if}}
+                        <li><a href="#" >Productos</a></li>
                         <li><a href="#" >Pedidos</a></li>
-                         <li><a href="#" >Calificación</a></li>
+                        <li><a href="#" >Calificación</a></li>
                     <!--  <li><a class="divider" ></a></li>
                        <li><a href="#" >Item #3</a></li> -->
-
-                          </ul>
+                      </ul>
                       <li><a href="#">Contactos</a></li>
-                      {{#if login}}
-                        <li><a href="/logout">Salir</a></li>
-                      {{/if}}
                     </ul>
                     </li> 
                     <ul class="cusNav dropdown-menu nav  navbar-nav" role = "my-menu" aria-labelledby="dropdownMenu">
@@ -39,6 +37,7 @@
             <div class="">
               <ul class="cusNav nav navbar-nav pull-right">
 					      <li><a href="#"> {{loggedUser.username}} </a></li>
+                <li><a href="/logout">Salir</a></li>
               </ul>
             </div>
             {{/if}}

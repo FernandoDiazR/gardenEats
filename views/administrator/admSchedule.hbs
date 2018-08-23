@@ -11,12 +11,12 @@
                 <div class="myform-bottom"> 
                     <form role="form" action="/{{rest._id}}/edit/branches/{{branch._id}}/sch" method="post">
                         <div class="form-group">
-                            <input type="text" name="DiasLab" placeholder="Dias Laborados" class="form-control" id="DiasLab">
+                            <input type="text" value="{{branch.schedule.days}}" name="DiasLab" placeholder="Dias Laborados" class="form-control" id="DiasLab">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="hora" placeholder="Digite el horario..." class="form-control" id="hora">
+                            <input type="text" value="{{branch.schedule.laboralTime}}" name="hora" placeholder="Digite el horario..." class="form-control" id="hora">
                         </div>
-                        <button type="submit" class="mybtn">Ingresar</button>	
+                        <button type="submit" class="mybtn btn btn-success">Ingresar</button>	
                     </form>
                 </div>
 			</div>					

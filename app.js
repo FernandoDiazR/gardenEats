@@ -17,6 +17,7 @@ var DataBase = require('./config/connection');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
 require('./config/passport');
 var app = express();
 
@@ -48,6 +49,10 @@ app.use(function(req, res, next){
   res.locals.login = req.isAuthenticated();
   res.locals.session = req.session;
   res.locals.loggedUser = req.user;
+  res.locals.isAdm = false;
+  if(req.user){
+    res.locals.isAdm = (req.user.level == 'admin');
+  }
   next();
 });
 

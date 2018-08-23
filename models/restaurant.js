@@ -9,8 +9,8 @@ var Schema = mongoose.Schema;
 });
 */
 var scheduleSchema = new Schema({
-    day: {type:String, required: true},
-    schedule:{type: String, required: true}
+    days: {type:String, required: true},
+    laboralTime: {type: String, required: true}
 });
 
 var productsSchema = new Schema({
@@ -23,7 +23,7 @@ var BranchSchema = new Schema({
     nameBranch: { type: String, required: true },
     address: { type: String },
     telephone: { type: String },
-    schedule:[scheduleSchema],
+    schedule: scheduleSchema,
     products: [productsSchema]
 });
 

@@ -47,8 +47,11 @@ router.post('/addRestaurant', function(req, res, next){
     }
   });
 });
-//---------------------------------------------------------------
-//---------------------------------------------------------------
+
+/*================================================================
+==================================================================
+*/
+
 router.get('/:idRest/edit', function(req, res, next){
   Restaurant.findById(req.params.idRest, function(err, rest){
     if(err){
@@ -101,6 +104,24 @@ router.get('/:idRest/edit/branches/:idBranch/sch', function(req, res, next){
   Restaurant.findById(idr, function(err, rest){
     var branch = rest.branches.id(idb);
     res.render('administrator/admSchedule', {rest: rest, branch: branch})
+  });
+});
+
+router.post('/:idRest/edit/branches/:idBranch/sch', function(req, res, next){
+  var d = req.body.DiasLab;
+  var h = req.body.hora;
+  var sch = {
+    days: d,
+    laboralTime: h
+  }
+  var idr = req.params.idRest;
+  var idb = req.params.idBranch;
+  Restaurant.findOneAndUpdate({'_id': idr, 'branches._id': idb},{$set:{'branches.$.schedule': sch}}, function(err, rest){
+    if(err){
+      throw err;
+    } else{
+      res.redirect('/'+idr+'/edit/branches')
+    }
   });
 });
 
