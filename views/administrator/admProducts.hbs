@@ -1,0 +1,49 @@
+<div class="my-content"> 
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1><strong>Productos - {{ branch.nameBranch }}</strong></h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-6">
+                    <a href="/{{rest._id}}/edit/{{branch._id}}/prod/add" class="btn btn-primary">Agregar producto</a>
+                </div>
+            </div>
+            <br>
+            {{#if hasErrors}}
+                {{#each errors}}
+                    <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                        {{this}}
+                    </div>
+                {{/each}}
+			{{/if}}
+            {{#if noProducts}}
+            <h1>No hay productos registrados en este momento.</h1>
+            {{else}}
+            <div class="row">
+                <div class="col-md-10">			
+                    <ul class="list-group">
+                    {{#each branch.products}}
+                        <li class="list-group-item clearfix">
+                            <div class="col-md-4 col-xs-6">
+                                {{ this.nameProduct }}
+                            </div>
+                            <div class="col-md-4 col-xs-6">
+                                &#8353;{{ this.priceProduct }}
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <a href="#" class="col-md-4 col-md-offset-4">Editar</a>
+                                <a href="#" class="col-md-4">Eliminar</a>
+                            </div>
+                        </li>		
+                    {{/each}}
+                    </ul>									
+                </div>		
+            </div>
+            {{/if}}
+       </div>	 								
+    </div>
+</div>

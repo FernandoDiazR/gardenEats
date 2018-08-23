@@ -17,6 +17,8 @@ var DataBase = require('./config/connection');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var shopRouter = require('./routes/shopping');
+var cartRouter = require('./routes/cart');
 
 require('./config/passport');
 var app = express();
@@ -57,6 +59,8 @@ app.use(function(req, res, next){
 });
 
 app.use('/user', usersRouter);
+app.use('/shop', shopRouter);
+app.use('/shopping-cart', cartRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
