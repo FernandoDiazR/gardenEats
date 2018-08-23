@@ -27,8 +27,8 @@ var BranchSchema = new Schema({
     products: [productsSchema]
 })
 var RestaurantSchema = new Schema({
-    name: { type: String, required: true },
-    description: { type: String },
+    restName: { type: String, required: true },
+    restDescription: { type: String },
     branches: [BranchSchema]
 });
 

@@ -30,7 +30,7 @@ router.get('/addRestaurant', function(req, res, next){
 
 router.post('/addRestaurant', function(req, res, next){
   var rest = req.body;
-  Restaurant.findOne({'name': rest.name}, function(err, restaurant){
+  Restaurant.findOne({'name': rest.restName}, function(err, restaurant){
     if(err) throw err;
     if(restaurant){
       req.flash('error', 'Ya existe un restaurante con el nombre propuesto.');

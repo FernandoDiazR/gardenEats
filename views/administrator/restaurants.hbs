@@ -5,7 +5,10 @@
                 <h1><strong>Restaurantes</strong></h1>
                 {{#if hasErrors}}
                     {{#each error}}
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+							</button>
                             {{ this }}
                         </div>
                     {{/each}}
@@ -25,11 +28,12 @@
                 <div class="col-md-10">			
                     <ul class="list-group">
                         <li class="list-group-item clearfix">
-                            <div class="col-md-6">
-                                {{ this.name }}
+                            <div class="col-md-8">
+                                {{ this.restName }}
                             </div>
-                            <div class="col-md-6">
-                                <a href="#" class="col-md-4">Editar</a> <a class="col-md-4" href="#">Editar Horarios</a> <a class="col-md-4" href="#" > Eliminar</a>
+                            <div class="col-md-4">
+                                <a href="#" class="col-md-4 col-md-offset-4">Editar</a>
+                                <a class="col-md-4" href="#" > Eliminar</a>
                             </div>
                         </li>
                     </ul>									
