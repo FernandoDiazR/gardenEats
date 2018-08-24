@@ -11,15 +11,22 @@ var administrator = {
     level: 'admin',
 };
 
-var newUser = new User(administrator);
+User.findOneAndRemove({'username': 'admin'}, function(err, res){
+    if(err) throw err;
+    exit();
+});
 
+var newUser = new User(administrator);
+newUser.password = newUser.encryptPassword(administrator.password);
 newUser.save(function(err, user){
     if(err) throw err;
     console.log("¡Usuario Administrador creado con éxito!");
-    console.log("Nombre de usuario: " + user.username);
-    console.log('Contraseña: ' + user.password);
+    console.log("Nombre de usuario: " + administrator.username);
+    console.log('Contraseña: ' + administrator.password);
     exit();
 });
+
+
 
 function exit(){
     mongoose.disconnect();
