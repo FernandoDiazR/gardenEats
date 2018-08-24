@@ -7,43 +7,33 @@
             </div>
         </div>
         <br>
+        {{#if noProducts}}
+            <h3>No hay productos actualmente</h3>
+        {{else}}
         <div class="row">
             <div class="col-md-10">			
                 <ul class="list-group">
+                    {{#each products}}
                     <li class="list-group-item clearfix">
-                        <div class="col-md-6">
-                            Dolor								
+                    <div class="col-md-6">
+                        <div class="col-sm-5">
+                            {{ this.nameProduct }}
                         </div>
-                        <div class="col-md-6">
-                            <a href="#" class="col-md-4">Añadir a Carrito</a> 
+                        <div class="col-sm-4">
+                            {{ this.restName }}
                         </div>
+                        <div class="col-sm-3">
+                            &#8353;{{ this.priceProduct }}
+                        </div>								
+                    </div>
+                    <div class="col-md-4 col-md-offset-2">
+                        <a href="/shop/add-to-cart/{{this._id}}/{{this._idr}}/{{this._idb}}">Añadir a Carrito</a> 
+                    </div>
                     </li>
-                    <li class="list-group-item clearfix">
-                        <div class="col-md-6">
-                            Cariai
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" class="col-md-4">Añadir a Carrito</a> 
-                        </div>
-                    </li>
-                    <li class="list-group-item clearfix">
-                        <div class="col-md-6">
-                            hola
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" class="col-md-4">Añadir a Carrito</a> 
-                        </div>
-                    </li>
-                    <li class="list-group-item clearfix">
-                        <div class="col-md-6">
-                            lloo
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" class="col-md-4">Añadir a Carrito</a> 
-                        </div>
-                    </li>
-                </ul>									
+                    {{/each}}
+                </ul>					
             </div>		
-        </div>				 								
+        </div>
+        {{/if}}				 								
     </div>
 </div>

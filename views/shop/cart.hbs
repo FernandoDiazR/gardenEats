@@ -7,24 +7,48 @@
             </div>
         </div>
         <br>
-        <div class="row">
+        {{#if products}}
+         <div class="row">
             <div class="col-md-10">	
                 <div class="col-xs-12">
                     <ul class="list-group">
+                        {{#each products}}
                         <li class="list-group-item clearfix">
                             <div class="col-md-6">
-                                Dolor - <span>Restaurante</span>									
+                                <div class="col-md-8">
+                                    {{this.item.nameProduct}} - <span>{{this.item.restName}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <span>&#8353;{{this.price}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="badge">{{this.qty}}</span>
+                                </div>								
                             </div>
                             <div class="col-md-6">
-                                <a href="#" class="col-md-4">Eliminar</a> 
+                                <div class="col-md-4 col-md-offset-4">
+                                    <a href="/shopping-cart/remove/{{this.item._id}}" class="col-md-4">Eliminar</a>
+                                </div> 
+                                <div class="col-md-4">
+                                    <a href="/shopping-cart/reduce/{{this.item._id}}" class="col-md-4">Reducir</a>
+                                </div>
                             </div>
                         </li>
+                        {{/each}}
                     </ul>
-                </div>
-                <div class="col-xs-12">
-                    <a class="btn btn-success pull-right">Pagar</a>
-                </div>								
+                </div>							
             </div>	
-        </div>				 								
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <strong>Total: {{totalPrice}} </strong>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <a class="btn btn-success pull-right">Pagar</a>
+        </div>	
+        {{else}}
+        <h3>No hay productos actualmente en el carrito</h3>
+        {{/if}}			 								
     </div>
 </div>

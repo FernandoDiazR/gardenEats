@@ -39,7 +39,6 @@ router.post('/addRestaurant', function(req, res, next){
       var newRestaurant = new Restaurant(rest);
       newRestaurant.save(function(err, r){
         if(err){
-          console.log(err);
           throw err;
         }
       });
@@ -123,7 +122,6 @@ router.get('/:idRest/edit/:idBranch/prod', function(req, res, next){
       throw err;
     } else{
       var branch = rest.branches.id(req.params.idBranch);
-      //var products = branch.products;
       var noProducts = (branch.products.length == 0);
       res.render('administrator/admProducts', {rest: rest, branch: branch, noProducts: noProducts, hasErrors: hasErrors, errors: errors});
     }
@@ -164,7 +162,6 @@ router.post('/:idRest/edit/:idBranch/prod/add', function(req, res, next){
     }
   });
   var errors = req.validationErrors();
-  console.log(errors);
   if(errors){
       var allMessages = [];
       errors.forEach(function(error){

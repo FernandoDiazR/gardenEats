@@ -11,16 +11,16 @@ module.exports = function Cart(oldCart) {
             };
         }
         storedItem.qty++;
-        storedItem.price = storedItem.item.price * storedItem.qty;
+        storedItem.price = storedItem.item.priceProduct * storedItem.qty;
         this.totalQty++;
-        this.totalPrice += storedItem.item.price;
+        this.totalPrice += storedItem.item.priceProduct;
     };
 
     this.reduceByOne = function(id){
         this.items[id].qty--;
-        this.items[id].price -= this.items[id].item.price;
+        this.items[id].price -= this.items[id].item.priceProduct;
         this.totalQty--;
-        this.totalPrice -= this.items[id].item.price;
+        this.totalPrice -= this.items[id].item.priceProduct;
         if(this.items[id].qty <= 0){
             delete this.items[id];
         }
