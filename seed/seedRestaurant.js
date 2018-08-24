@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Restaurant = require('../models/restaurant');
 
 mongoose.connect('mongodb://127.0.0.1:27017/garden', {useNewUrlParser: true});
-
+/*PRUEBAS DE QUERY*/
 var elements = {
     nameBranch: "BK Guápiles Norte",
     address: "Al norte we",
@@ -28,7 +28,7 @@ Restaurant.findOne({restName: 'Burger King'}, function(err, rest){
 });
 
 */
-
+/*
 Restaurant.findOneAndUpdate({restName: 'Burger King'}, {$push:{branches: elements}}, function(err, rest){
     exit();
 });
@@ -38,7 +38,7 @@ Restaurant.findOne({restName: 'Burger King'}, function(err, rest){
     console.log(rest);
     exit();
 });
-
+*/
 
 
 

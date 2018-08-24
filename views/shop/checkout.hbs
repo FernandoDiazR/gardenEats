@@ -1,0 +1,38 @@
+<div class="my-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-3 myform-cont">
+                <div class="myform-top">
+                    <div id="charge-error" class="alert alert-danger {{#if noErrors}}hidden{{/if}}">
+                        {{errMsg}}
+                    </div>
+                    <div class="myform-top-left">
+                        <h3><strong>Check Out - &#8353;{{total}}</strong></h3>
+                        <p>Ingrese los datos de la tarjeta</p>
+                    </div>
+                </div>
+            </div>				
+        </div>
+        <div class="row">
+        <div class="col-sm-4 col-sm-offset-3">
+            <div class="myform-bottom">
+                <form role="form" action="/shopping-cart/checkout" method="post" class="">
+                    <div class="form-group">
+                        <input type="text" name="numtarje" placeholder="Numero de la tarjeta" class="form-control" id="numtarje" autocomplete="off">				
+                    </div>
+                    <div class="form-group">	
+                        <input type="text" name="name" placeholder="Nombre del titular de la tarjeta" class="form-control" id="name" autocomplete="off">
+                    </div>	
+                    <div class="form-group">	
+                        <input type="text" name="expira" placeholder="Expira mm/yy" class="form-control" id="expira" autocomplete="off">
+                    </div>	
+                    <div class="form-group">	
+                        <input type="text" name="csc" placeholder="csc" class="form-control" id="csc" autocomplete="off">
+                    </div>					
+                    <button type="submit" class="btn btn-success">Aceptar</button>	
+                </form>
+            </div>
+        </div>
+        </div>
+	</div>
+</div>

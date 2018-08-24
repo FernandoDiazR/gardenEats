@@ -19,7 +19,12 @@
                         <li><a href="/restaurants" >Restaurantes</a></li>
                         {{/if}}
                         <li><a href="/shop" >Productos</a></li>
-                        <li><a href="/shopping-cart">Pedidos</a></li>
+                        <li><a href="/shopping-cart">Pedidos
+                            {{#if login}}
+                              <span class="badge">{{session.cart.totalQty}}</span>
+                            {{/if}}
+                          </a>
+                        </li>
                         <li><a href="#" >Calificación</a></li>
                     <!--  <li><a class="divider" ></a></li>
                        <li><a href="#" >Item #3</a></li> -->
@@ -35,8 +40,13 @@
             </div>
             {{#if login}}
             <div class="">
+              <ul class="cusNav nav navbar-nav">
+                <li><a><span class="badge">{{session.cart.totalQty}}</span></a></li>
+              </ul>
+            </div>
+            <div class="">
               <ul class="cusNav nav navbar-nav pull-right">
-					      <li><a href="#"> {{loggedUser.username}} </a></li>
+					      <li><a href="user/profile"> {{loggedUser.username}} </a></li>
                 <li><a href="user/logout">Salir</a></li>
               </ul>
             </div>

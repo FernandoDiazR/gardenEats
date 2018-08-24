@@ -52,8 +52,10 @@ app.use(function(req, res, next){
   res.locals.session = req.session;
   res.locals.loggedUser = req.user;
   res.locals.isAdm = false;
+  res.locals.isMod = false;
   if(req.user){
     res.locals.isAdm = (req.user.level == 'admin');
+    res.locals.isMod = (req.user.level == 'mod');
   }
   next();
 });

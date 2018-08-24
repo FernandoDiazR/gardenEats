@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/add-to-cart/:idProd/:idRest/:idBranch', function(req, res, next){
+router.get('/add-to-cart/:idProd/:idRest/:idBranch', isLoggedIn, function(req, res, next){
     var idp = req.params.idProd;
     var idr = req.params.idRest;
     var idb = req.params.idBranch;
@@ -60,3 +60,18 @@ router.get('/add-to-cart/:idProd/:idRest/:idBranch', function(req, res, next){
 });
 
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    req.flash('error', 'Favor ingresar con su cuenta.')
+    res.redirect('/');
+  }
+  
+function notLoggedIn(req, res, next) {
+    if (!req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+}

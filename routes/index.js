@@ -6,12 +6,15 @@ var Restaurant = require('../models/restaurant');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var loggedUser = req.user;
+  var successMsg = req.flash('success')[0];
+  var errors = req.flash('error');
+  var hasErrors = errors.length > 0;
   if(!loggedUser){
-    res.render('shop/index', { title: 'Garden Eats'});
+    res.render('shop/index', { title: 'Garden Eats', errors: errors, hasErrors: hasErrors});
   } else{
     User.findById({'_id': loggedUser._id}, function(err, user){
       if(err) throw err;
-      res.render('shop/index', { title: 'Garden Eats', user: user });
+      res.render('shop/index', { title: 'Garden Eats', user: user, successMsg: successMsg });
     });
   }
 });
@@ -195,3 +198,10 @@ router.post('/:idRest/edit/:idBranch/prod/add', function(req, res, next){
 });
 
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/');
+}
