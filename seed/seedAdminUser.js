@@ -1,7 +1,21 @@
 var mongoose = require('mongoose');
 var User = require('../models/user');
+require('dotenv').config();
 
-mongoose.connect('mongodb://127.0.0.1:27017/garden', {useNewUrlParser: true});
+const db = {
+    user: process.env.DB_USER,
+    pass: process.env.DB_PASS,
+    port: process.env.DB_PORT,
+    name: process.env.DB_NAME,
+}
+
+const conString = `mongodb://${db.user}:${db.pass}@ds125892.mlab.com:${db.port}/${db.name}`
+mongoose.connect(conString, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+});
 
 var administrator = {
     fullname: 'administrator',

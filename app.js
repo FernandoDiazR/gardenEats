@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressHbs = require('express-handlebars');
+require('dotenv').config();
 var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
@@ -11,9 +12,7 @@ var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
 
-var DataBase = require('./config/connection');
-
-
+var dataBase = require('./config/connection');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -22,8 +21,13 @@ var cartRouter = require('./routes/cart');
 
 require('./config/passport');
 var app = express();
-
-mongoose.connect(DataBase.database, {useNewUrlParser: true});
+mongoose.connect(
+  dataBase.conString, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  });
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
